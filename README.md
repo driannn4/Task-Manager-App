@@ -1,16 +1,12 @@
-# task_manager
+# Task Manager App
 
-A new Flutter project.
+Task Manager App adalah aplikasi manajemen tugas yang dirancang untuk membantu pengguna mengelola aktivitas dan pekerjaan sehari-hari dengan lebih efisien. Aplikasi ini memungkinkan pengguna untuk melacak tugas-tugas yang perlu diselesaikan, melihat progres penyelesaiannya, serta mendapatkan ringkasan aktivitas mereka. Dengan tampilan yang menarik dan interaktif, aplikasi ini memberikan pengalaman yang responsif dan memudahkan pengguna dalam mengatur jadwal dan pekerjaan mereka. Dibangun menggunakan Flutter, aplikasi ini mendukung berbagai perangkat dan memberikan performa yang cepat dan responsif. Fitur utama aplikasi ini mencakup manajemen tugas, pengingat untuk menyelesaikan pekerjaan, dan tampilan dashboard yang memudahkan pengguna memantau progres mereka secara real-time.
 
-## Getting Started
+## Teknologi yang Digunakan
+- **Flutter**: Untuk pengembangan aplikasi mobile.
+- **Dart**: Bahasa pemrograman yang digunakan di dalam Flutter.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Cara Instalasi
+1. Clone repository ini ke mesin lokal:
+   ```bash
+   git clone https://github.com/driannn4/Task-Manager-App.git
