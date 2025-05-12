@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
-import '/widgets/mini_stat_card.dart'; // Mengimpor MiniStatCard
-import '/widgets/animated_dashboard_card.dart'; // Mengimpor AnimatedDashboardCard
+import '/widgets/mini_stat_card.dart';
+import '/widgets/animated_dashboard_card.dart';
+import '/widgets/daily_todo_list.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Deklarasi variabel di dalam method build
     int totalTugas = 12;
     int tugasSelesai = 9;
     double progress = tugasSelesai / totalTugas;
@@ -16,17 +16,17 @@ class DashboardScreen extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent, // Transparan untuk AppBar
+        backgroundColor: Colors.transparent,
         elevation: 0,
         flexibleSpace: ClipRRect(
           child: BackdropFilter(
             filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Color(0xAA673AB7), // Ungu lebih gelap (bagian bawah body)
-                    Color(0xAA4A148C), // Ungu muda cerah (bagian atas body)
+                    Color(0xAA673AB7),
+                    Color(0xAA4A148C),
                   ],
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
@@ -35,14 +35,13 @@ class DashboardScreen extends StatelessWidget {
             ),
           ),
         ),
-        title: Icon(
+        title: const Icon(
           Icons.auto_awesome,
           size: 30,
-          color: Colors.white, // Warna ikon AppBar putih
+          color: Colors.white,
         ),
         centerTitle: true,
         actions: [
-          // Ganti ikon kanan jadi ikon project seperti assignment
           IconButton(
             icon: const Icon(Icons.assignment, color: Colors.pinkAccent),
             onPressed: () {},
@@ -55,8 +54,8 @@ class DashboardScreen extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xFF3A0CA3), // Ungu terang (bagian atas body)
-              Color(0xFF1E1F28), // Biru gelap (bagian bawah body)
+              Color(0xFF3A0CA3),
+              Color(0xFF1E1F28),
             ],
           ),
         ),
@@ -80,7 +79,6 @@ class DashboardScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 16, color: Colors.white70),
                 ),
                 const SizedBox(height: 24),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
@@ -98,9 +96,7 @@ class DashboardScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 const SizedBox(height: 24),
-
                 const Text(
                   'Progress Tugas Hari Ini',
                   style: TextStyle(
@@ -110,8 +106,6 @@ class DashboardScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-
-                // LinearProgressIndicator yang menampilkan progress
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: LinearProgressIndicator(
@@ -121,13 +115,24 @@ class DashboardScreen extends StatelessWidget {
                     valueColor: AlwaysStoppedAnimation<Color>(Colors.greenAccent),
                   ),
                 ),
-
                 const SizedBox(height: 8),
                 Text(
                   '$tugasSelesai dari $totalTugas tugas selesai',
                   style: const TextStyle(color: Colors.white70, fontSize: 14),
                 ),
 
+                // ⬇️⬇️ Fitur tambahan: To-Do List Harian
+                const SizedBox(height: 24),
+                const Text(
+                  'To-Do List Hari Ini 📝',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                const DailyTodoList(),
                 const SizedBox(height: 24),
 
                 Row(
@@ -143,9 +148,7 @@ class DashboardScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 const SizedBox(height: 12),
-
                 Wrap(
                   spacing: 16,
                   runSpacing: 16,
@@ -188,15 +191,12 @@ class DashboardScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 const SizedBox(height: 32),
-
                 const Text(
                   'Tips Hari Ini ✨',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
                 ),
                 const SizedBox(height: 12),
-
                 Container(
                   width: double.infinity,
                   padding: const EdgeInsets.all(16),

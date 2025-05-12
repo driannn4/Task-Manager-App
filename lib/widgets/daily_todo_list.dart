@@ -1,28 +1,46 @@
 import 'package:flutter/material.dart';
 
-class DailyTodoList extends StatelessWidget {
-  final List<String> tasks;
+class DailyTodoList extends StatefulWidget {
+  const DailyTodoList({super.key});
 
-  const DailyTodoList({super.key, required this.tasks});
+  @override
+  State<DailyTodoList> createState() => _DailyTodoListState();
+}
+
+class _DailyTodoListState extends State<DailyTodoList> {
+  final List<Map<String, dynamic>> _tasks = [
+    {'title': 'Buat laporan harian', 'done': false},
+    {'title': 'Kerjakan modul WP3', 'done': false},
+    {'title': 'Rekap nilai absen', 'done': false},
+  ];
+
+  void _toggleTask(int index) {
+    setState(() {
+      _tasks[index]['done'] = !_tasks[index]['done'];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: tasks.map((task) {
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: 6.0),
-          child: Row(
-            children: [
-              const Icon(Icons.check_circle_outline, color: Colors.white70, size: 20),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Text(
-                  task,
-                  style: const TextStyle(color: Colors.white70, fontSize: 14),
-                ),
+      children: _tasks.map((task) {
+        final index = _tasks.indexOf(task);
+        return Card(
+          color: task['done'] ? Colors.green.withOpacity(0.2) : Colors.white.withOpacity(0.1),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          child: ListTile(
+            leading: Icon(
+              task['done'] ? Icons.check_circle : Icons.radio_button_unchecked,
+              color: task['done'] ? Colors.greenAccent : Colors.white54,
+            ),
+            title: Text(
+              task['title'],
+              style: TextStyle(
+                color: Colors.white,
+                decoration: task['done'] ? TextDecoration.lineThrough : null,
               ),
-            ],
+            ),
+            onTap: () => _toggleTask(index),
           ),
         );
       }).toList(),
