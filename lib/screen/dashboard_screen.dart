@@ -79,23 +79,29 @@ class DashboardScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 16, color: Colors.white70),
                 ),
                 const SizedBox(height: 24),
+
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
-                    MiniStatCard(
-                      title: 'Total Tugas',
-                      value: '12',
-                      color: Colors.blue,
-                      textColor: Colors.white,
+                    Expanded(
+                      child: MiniStatCard(
+                        title: 'Total Tugas',
+                        value: '12',
+                        color: Color(0xFF00FFFF), // Cyan terang
+                        textColor: Color.fromARGB(221, 255, 255, 255),
+                      ),
                     ),
-                    MiniStatCard(
-                      title: 'Hari Aktif',
-                      value: '27',
-                      color: Colors.orangeAccent,
-                      textColor: Colors.white,
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: MiniStatCard(
+                        title: 'Hari Aktif',
+                        value: '27',
+                        color: Color(0xFFFFFF66), // Kuning terang
+                        textColor: Color.fromARGB(221, 255, 255, 255),
+                      ),
                     ),
                   ],
                 ),
+
                 const SizedBox(height: 24),
                 const Text(
                   'Progress Tugas Hari Ini',
@@ -121,7 +127,6 @@ class DashboardScreen extends StatelessWidget {
                   style: const TextStyle(color: Colors.white70, fontSize: 14),
                 ),
 
-                // ⬇️⬇️ Fitur tambahan: To-Do List Harian
                 const SizedBox(height: 24),
                 const Text(
                   'To-Do List Hari Ini 📝',
@@ -191,6 +196,7 @@ class DashboardScreen extends StatelessWidget {
                     ),
                   ],
                 ),
+
                 const SizedBox(height: 32),
                 const Text(
                   'Tips Hari Ini ✨',
