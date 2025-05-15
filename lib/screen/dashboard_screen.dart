@@ -9,7 +9,7 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int totalTugas = 12;
+    int totalTugas = 13;
     int tugasSelesai = 9;
     double progress = tugasSelesai / totalTugas;
 
@@ -85,7 +85,7 @@ class DashboardScreen extends StatelessWidget {
                     Expanded(
                       child: MiniStatCard(
                         title: 'Total Tugas',
-                        value: '12',
+                        value: '13',
                         color: Color(0xFF00FFFF), // Cyan terang
                         textColor: Color.fromARGB(221, 255, 255, 255),
                       ),
